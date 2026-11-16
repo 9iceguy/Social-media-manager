@@ -1,0 +1,17 @@
+services:
+  socially:
+    build: .
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DATA_DIR: /data
+    ports:
+      - "3001:3001"
+    volumes:
+      - socially-data:/data
+    restart: unless-stopped
+
+volumes:
+  socially-data:
